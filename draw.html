@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Achievements Awards 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07060a;--gold:#d8b25a;--gold2:#f7e3a1;--gold3:#8a6a25;--ivory:#f6efdf;--glass:rgba(255,248,225,.05);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--ivory);font-family:Montserrat,system-ui,sans-serif;font-weight:300}
+body{background:radial-gradient(ellipse at 50% -10%,#2a2010 0,#0b0910 45%,#050407 100%) fixed}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.gold{background:linear-gradient(100deg,var(--gold3),var(--gold2) 30%,var(--gold) 50%,var(--gold2) 70%,var(--gold3));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+canvas#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.view{display:none;position:relative;z-index:2;min-height:100%}.view.on{display:block}
+.wrap{max-width:560px;margin:0 auto;padding:44px 24px 60px;text-align:center}
+.eyebrow{letter-spacing:.5em;font-size:11px;color:var(--gold);text-transform:uppercase}
+h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(38px,9vw,64px);line-height:1;margin:18px 0 14px;letter-spacing:.04em}
+.sub{opacity:.75;line-height:1.7;font-size:14px}
+.rule{height:1px;width:140px;margin:26px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.panel{background:var(--glass);border:1px solid rgba(216,178,90,.28);border-radius:4px;padding:26px;backdrop-filter:blur(14px);box-shadow:0 0 60px rgba(216,178,90,.08),inset 0 0 40px rgba(216,178,90,.03);text-align:left}
+label{display:block;font-size:11px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin:18px 0 8px}
+.q{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;text-align:center;color:var(--gold2);margin:4px 0 10px}
+input,textarea{width:100%;background:rgba(0,0,0,.45);border:1px solid rgba(216,178,90,.35);color:var(--ivory);padding:14px;font:inherit;font-size:16px;border-radius:2px;outline:none}
+input:focus,textarea:focus{border-color:var(--gold2);box-shadow:0 0 18px rgba(216,178,90,.3)}
+textarea{min-height:120px;resize:vertical}
+.btn{cursor:pointer;border:1px solid var(--gold);background:linear-gradient(135deg,#8a6a25,#f7e3a1 50%,#b88a35);color:#1a1205;font:600 12px Montserrat;letter-spacing:.25em;text-transform:uppercase;padding:16px 22px;border-radius:2px;width:100%;margin-top:24px;transition:.25s}
+.btn:hover{filter:brightness(1.12);box-shadow:0 0 30px rgba(216,178,90,.5)}.btn:disabled{opacity:.4;cursor:default}
+.btn.ghost{background:transparent;color:var(--gold2);width:auto;margin:0;padding:11px 16px}
+.err{color:#ff9d8a;font-size:13px;margin-top:12px;min-height:18px}
+.conf{padding-top:12vh;text-align:center}.conf h1{font-size:clamp(40px,11vw,76px)}
+/* admin */
+.adm{max-width:1000px;margin:0 auto;padding:32px 20px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:20px 0}
+.stat{padding:18px;text-align:center}.stat b{display:block;font:700 40px 'Cormorant Garamond';color:var(--gold2)}.stat span{font-size:10px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0;align-items:center}
+.bar input{flex:1;min-width:180px}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13px}th{font-size:10px;letter-spacing:.2em;color:var(--gold);text-align:left;text-transform:uppercase}
+td,th{padding:10px 8px;border-bottom:1px solid rgba(216,178,90,.15);vertical-align:top}.win td{color:var(--gold2)}
+/* stage */
+#stage{height:100%;overflow:hidden;text-align:center}
+#stage.on{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.sc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 1.2s;padding:4vw}.sc.on{opacity:1;pointer-events:auto}
+.big{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(40px,9vw,150px);line-height:1;letter-spacing:.05em}
+.mid{font:italic 400 clamp(20px,3vw,44px) 'Cormorant Garamond';color:var(--gold2);letter-spacing:.1em}
+.sphere{width:min(46vh,46vw);height:min(46vh,46vw);border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,rgba(255,240,190,.35),rgba(216,178,90,.12) 45%,rgba(20,14,4,.7));border:1px solid rgba(247,227,161,.5);box-shadow:0 0 80px rgba(216,178,90,.45),inset 0 0 80px rgba(216,178,90,.2);animation:pulse 2.4s ease-in-out infinite}
+.sphere.fast{animation-duration:.5s}
+@keyframes pulse{50%{transform:scale(1.04);box-shadow:0 0 140px rgba(247,227,161,.7),inset 0 0 90px rgba(216,178,90,.35)}}
+#roul{font:600 clamp(22px,3.4vw,48px) 'Cormorant Garamond';color:var(--gold2);max-width:80%;text-shadow:0 0 20px rgba(216,178,90,.8)}
+.cnt{position:absolute;top:3vh;left:0;right:0;font-size:clamp(12px,1.4vw,20px);letter-spacing:.6em;color:var(--gold)}
+#flash{position:fixed;inset:0;background:#fff6d0;opacity:0;pointer-events:none;z-index:5}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2vw;width:min(92vw,1300px);margin-top:3vh}
+.frame{border:1px solid var(--gold);padding:1.6vw 1vw;background:linear-gradient(160deg,rgba(216,178,90,.14),rgba(0,0,0,.5));box-shadow:0 0 30px rgba(216,178,90,.3),inset 0 0 0 5px #07060a,inset 0 0 0 6px rgba(216,178,90,.5);opacity:0;transform:translateY(30px) scale(.95);animation:rise .9s forwards}
+.frame i{font:600 clamp(11px,1.2vw,18px) Montserrat;font-style:normal;letter-spacing:.3em;color:var(--gold)}.frame div{font:700 clamp(18px,2.4vw,38px) 'Cormorant Garamond';margin-top:.6vw;color:var(--gold2)}
+@keyframes rise{to{opacity:1;transform:none}}
+.ctl{position:fixed;bottom:14px;right:14px;z-index:6;display:flex;gap:8px;opacity:.35;transition:.3s}.ctl:hover{opacity:1}
+.hint{position:fixed;bottom:18px;left:0;right:0;text-align:center;z-index:4;font-size:11px;letter-spacing:.3em;color:var(--gold);opacity:.7;pointer-events:none}
+</style></head><body><canvas id="fx"></canvas><div id="flash"></div>
+
+<section class="view on" id="admin"><div class="adm">
+<div class="eyebrow">Control Room</div><h1 class="gold" style="font-size:44px">Achievements Awards 2026</h1>
+<div class="panel" id="load"><div class="bar"><label class="btn ghost" style="cursor:pointer">📂 Load participants CSV<input type="file" id="file" accept=".csv,text/csv" hidden></label>
+<button class="btn ghost" id="burl">⟳ Load from published sheet URL</button></div>
+<div class="sub" style="font-size:12px">Download your Google Sheet as CSV (File → Download → .csv) and load it here. Columns: ID, Date, Name, Achievement.</div></div>
+<div class="stats"><div class="panel stat"><b id="s1">0</b><span>Participants</span></div><div class="panel stat"><b id="s2">0 / 7</b><span>Winners drawn</span></div><div class="panel stat"><b id="s3">0</b><span>Still in pool</span></div></div>
+<div class="bar"><button class="btn ghost" id="bstage">▶ Start the ceremony</button><button class="btn ghost" id="bcsvw">⬇ Export winners</button><button class="btn ghost" id="breset">↺ Reset draw</button></div>
+<div class="panel"><div class="bar"><input id="q" placeholder="Search name or achievement…"></div><div class="tw"><table><thead><tr><th>ID</th><th>Name</th><th>Achievement</th><th>Registered</th><th></th></tr></thead><tbody id="rows"></tbody></table></div></div></div></section>
+<section class="view" id="stage">
+<div class="sc on" id="s-dark"><div class="eyebrow">Press to begin</div><button class="btn ghost" id="begin" style="margin-top:20px">Begin the ceremony</button></div>
+<div class="sc" id="s-title"><div class="eyebrow">Gala Night</div><div class="big gold" style="margin:3vh 0">ACHIEVEMENTS<br>AWARDS 2026</div><div class="mid" id="tl1" style="opacity:0;transition:opacity 2s">THE GRAND PRIZE DRAW</div><div class="mid" id="tl2" style="opacity:0;transition:opacity 2s;margin-top:2vh;font-size:clamp(14px,1.8vw,26px)">7 WINNERS. 7 EXTRAORDINARY MOMENTS.</div></div>
+<div class="sc" id="s-draw"><div class="cnt" id="cnt"></div><div class="sphere" id="sph"><div id="roul"></div></div><div class="mid" id="drtxt" style="margin-top:4vh">Press SPACE for the next winner</div></div>
+<div class="sc" id="s-win"><div class="cnt" id="cnt2"></div><div class="mid" id="w1">AND THE WINNER IS...</div><div class="big gold" id="wn" style="margin:4vh 0;opacity:0;transform:scale(.7);transition:all 1.4s cubic-bezier(.2,.9,.2,1)"></div><div class="mid" id="w2" style="opacity:0;transition:opacity 1.5s">CONGRATULATIONS!</div></div>
+<div class="sc" id="s-fin"><div class="big gold" style="font-size:clamp(34px,6vw,96px)">OUR 7 GRAND WINNERS</div><div class="mid" style="margin-top:1.5vh;font-size:clamp(14px,1.8vw,26px)">Celebrating extraordinary people and extraordinary achievements.</div><div class="grid" id="fgrid"></div></div>
+<div class="ctl"><button class="btn ghost" id="bsnd">🔇 Sound</button><button class="btn ghost" id="bmus">♪ Music</button><button class="btn ghost" id="bfs">⛶ Fullscreen</button><button class="btn ghost" id="bnext">Next winner ▶</button><button class="btn ghost" id="bback">✕ Admin</button></div></section>
+<script>
+const PASSWORD="CHANGE_ME", SHEET_CSV_URL="", TOTAL=7;
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),pad=n=>String(n).padStart(2,'0');
+if(prompt('Password')!==PASSWORD){document.body.innerHTML='<p style="padding:40px">Access denied.</p>';throw 0}
+let entries=[],winners=[];try{winners=JSON.parse(localStorage.getItem('aa26w')||'[]');entries=JSON.parse(localStorage.getItem('aa26e')||'[]')}catch(e){}
+const save=()=>{try{localStorage.setItem('aa26w',JSON.stringify(winners));localStorage.setItem('aa26e',JSON.stringify(entries))}catch(e){}};
+function parseCSV(t){const rows=[];let r=[],c='',q=false;t=t.replace(/^\ufeff/,'');for(let i=0;i<t.length;i++){const ch=t[i];if(q){if(ch=='"'){if(t[i+1]=='"'){c+='"';i++}else q=false}else c+=ch}else if(ch=='"')q=true;else if(ch==','){r.push(c);c=''}else if(ch=='\n'||ch=='\r'){if(ch=='\r'&&t[i+1]=='\n')i++;r.push(c);rows.push(r);r=[];c=''}else c+=ch}if(c||r.length){r.push(c);rows.push(r)}return rows}
+function ingest(t){let rows=parseCSV(t).filter(r=>r.some(x=>x&&x.trim()));if(rows.length&&/id|name|nume/i.test(rows[0].join(' ')))rows.shift();
+ const seen=new Set();entries=rows.map(r=>({pid:(r[0]||'').trim(),at:(r[1]||'').trim(),name:(r[2]||'').trim(),achievement:(r[3]||'').trim()})).filter(e=>{const k=e.name.toLowerCase().replace(/\s+/g,' ');if(!e.name||seen.has(k))return false;seen.add(k);if(!e.pid)e.pid='N'+seen.size;return true});save();render()}
+$('#file').onchange=e=>{const f=e.target.files[0];if(f)f.text().then(ingest)};
+$('#burl').onclick=async()=>{const u=SHEET_CSV_URL||prompt('Published sheet CSV URL');if(!u)return;try{ingest(await (await fetch(u)).text())}catch(e){alert('Could not load the sheet.')}};
+const ws=()=>new Set(winners.map(w=>w.pid));
+function render(){const s=ws(),q=$('#q').value.toLowerCase();$('#s1').textContent=entries.length;$('#s2').textContent=winners.length+' / '+TOTAL;$('#s3').textContent=entries.filter(e=>!s.has(e.pid)).length;
+ $('#rows').innerHTML=entries.filter(e=>!q||(e.name+e.achievement).toLowerCase().includes(q)).map(e=>`<tr class="${s.has(e.pid)?'win':''}"><td>${esc(e.pid)}</td><td>${esc(e.name)}</td><td>${esc(e.achievement)}</td><td>${esc(e.at)}</td><td>${s.has(e.pid)?'★ #'+winners.find(w=>w.pid===e.pid).n:''}</td></tr>`).join('')||'<tr><td colspan=5>No participants loaded.</td></tr>'}
+$('#q').oninput=render;render();
+$('#bcsvw').onclick=()=>{const t=[['#','ID','Name','Achievement']].concat(winners.map(w=>[w.n,w.pid,w.name,w.achievement])).map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+t],{type:'text/csv'}));a.download='winners.csv';a.click()};
+$('#breset').onclick=()=>{if(winners.length&&prompt('Type RESET to clear all winners')==='RESET'){winners=[];save();render();started=false;busy=false}};
+/* ---------- audio ---------- */
+let AC=null,sndOn=false,musOn=false,mus=[];
+const ac=()=>AC||(AC=new (window.AudioContext||window.webkitAudioContext)());
+function tone(f,d,t='sine',v=.15,s=0){if(!sndOn)return;const a=ac(),o=a.createOscillator(),g=a.createGain(),t0=a.currentTime+s;o.type=t;o.frequency.value=f;g.gain.setValueAtTime(v,t0);g.gain.exponentialRampToValueAtTime(.0001,t0+d);o.connect(g).connect(a.destination);o.start(t0);o.stop(t0+d)}
+const tick=()=>tone(900+Math.random()*300,.05,'triangle',.06);
+const boom=()=>{[261,329,392,523,659].forEach((f,i)=>tone(f,2.2,'triangle',.12,i*.07));tone(65,1.5,'sine',.4)};
+function music(on){mus.forEach(o=>{try{o.stop()}catch(e){}});mus=[];if(!on)return;const a=ac(),g=a.createGain();g.gain.value=.035;g.connect(a.destination);[110,164.8,220,277.2,329.6].forEach((f,i)=>{const o=a.createOscillator(),l=a.createOscillator(),lg=a.createGain();o.type='sawtooth';o.frequency.value=f;l.frequency.value=.07+i*.03;lg.gain.value=3;l.connect(lg).connect(o.frequency);o.connect(g);o.start();l.start();mus.push(o,l)})}
+$('#bsnd').onclick=e=>{sndOn=!sndOn;e.target.textContent=sndOn?'🔊 Sound':'🔇 Sound';if(sndOn)ac().resume()};
+$('#bmus').onclick=e=>{musOn=!musOn;e.target.textContent=musOn?'♪ Music on':'♪ Music';if(musOn)ac().resume();music(musOn)};
+$('#bfs').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{});
+
+/* ---------- FX ---------- */
+const cv=$('#fx'),cx=cv.getContext('2d');let W,H,P=[],R=[];
+const rs=()=>{W=cv.width=innerWidth;H=cv.height=innerHeight};addEventListener('resize',rs);rs();
+for(let i=0;i<70;i++)P.push({x:Math.random()*2e3,y:Math.random()*1200,r:Math.random()*1.8+.4,v:Math.random()*.3+.1,a:Math.random()*6});
+function burst(x,y,n=70,hue=45){for(let i=0;i<n;i++){const a=Math.random()*6.283,s=Math.random()*7+2;R.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:1,h:hue+Math.random()*15,c:0})}}
+function confetti(n=140){for(let i=0;i<n;i++)R.push({x:Math.random()*W,y:-20,vx:Math.random()*2-1,vy:Math.random()*3+2,l:2,h:38+Math.random()*20,c:1,w:Math.random()*8+4})}
+function celebrate(){burst(W/2,H/3,90);confetti(80);setTimeout(()=>burst(W*.3,H*.4,60),300);setTimeout(()=>burst(W*.7,H*.35,60),600)}
+let fw=0;function finale(){fw=Date.now()+14000;(function f(){if(Date.now()>fw)return;burst(W*(.1+Math.random()*.8),H*(.1+Math.random()*.5),55);tone(180+Math.random()*80,.4,'sawtooth',.04);setTimeout(f,350)})();confetti(250)}
+function loop(t){cx.clearRect(0,0,W,H);cx.globalCompositeOperation='lighter';
+ for(const p of P){p.y-=p.v;p.x+=Math.sin(t/2e3+p.a)*.2;if(p.y<-5)p.y=H+5;cx.fillStyle=`rgba(247,227,161,${.25+.25*Math.sin(t/700+p.a)})`;cx.beginPath();cx.arc(p.x%W,p.y%H,p.r,0,6.283);cx.fill()}
+ for(let i=R.length-1;i>=0;i--){const r=R[i];r.x+=r.vx;r.y+=r.vy;if(r.c){r.vx+=Math.sin(r.y/30)*.05;r.l-=.004}else{r.vy+=.08;r.vx*=.98;r.l-=.014}
+  if(r.l<=0||r.y>H+30){R.splice(i,1);continue}
+  cx.fillStyle=`hsla(${r.h},90%,${r.c?60:70}%,${Math.min(1,r.l)})`;if(r.c)cx.fillRect(r.x,r.y,r.w,r.w*.5);else{cx.beginPath();cx.arc(r.x,r.y,2,0,6.283);cx.fill()}}
+ if(R.length>1800)R.splice(0,R.length-1800);cx.globalCompositeOperation='source-over';requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+
+
+const sleep=ms=>new Promise(r=>setTimeout(r,ms)),scene=id=>document.querySelectorAll('.sc').forEach(s=>s.classList.toggle('on',s.id===id));
+let started=false,busy=false;
+const show=v=>{$('#admin').classList.toggle('on',v==='admin');$('#stage').classList.toggle('on',v==='stage');cv.style.zIndex=v==='stage'?1:0};
+$('#bstage').onclick=()=>{if(entries.length<TOTAL-winners.length)return alert('Load at least '+(TOTAL-winners.length)+' participants first.');show('stage');started=false;scene('s-dark')};
+$('#bback').onclick=()=>{if(!busy){show('admin');render()}};
+$('#begin').onclick=async()=>{if(started)return;started=true;scene('s-title');for(let i=0;i<5;i++)setTimeout(()=>burst(W/2,H/2,30),i*500);tone(130,3,'sine',.2);
+ await sleep(2500);$('#tl1').style.opacity=1;await sleep(2200);$('#tl2').style.opacity=1;await sleep(2500);winners.length>=TOTAL?showFinal():prep()};
+function prep(){scene('s-draw');$('#cnt').textContent=`WINNER ${pad(winners.length+1)} / 07`;$('#roul').textContent='';$('#drtxt').textContent='Press SPACE for the next winner'}
+function pick(pool){const a=new Uint32Array(1),lim=Math.floor(4294967296/pool.length)*pool.length;do crypto.getRandomValues(a);while(a[0]>=lim);return pool[a[0]%pool.length]}
+async function nextWinner(){
+ if(!started||busy||!$('#stage').classList.contains('on'))return;if(winners.length>=TOTAL)return showFinal();
+ busy=true;const s=ws(),pool=entries.filter(e=>!s.has(e.pid));if(pool.length<1){busy=false;return}
+ const w=pick(pool),n=winners.length+1;winners.push({n,pid:w.pid,name:w.name,achievement:w.achievement});save();
+ const names=entries.map(e=>e.name);scene('s-draw');$('#cnt').textContent=`WINNER ${pad(n)} / 07`;$('#sph').classList.add('fast');$('#drtxt').textContent='Drawing…';
+ const t0=Date.now(),dur=8000;while(Date.now()-t0<dur){const p=(Date.now()-t0)/dur;$('#roul').textContent=names[Math.random()*names.length|0];tick();if(Math.random()<.5)burst(W/2+(Math.random()-.5)*W*.3,H/2,6);await sleep(40+p*p*p*420)}
+ $('#roul').textContent='';$('#sph').classList.remove('fast');$('#drtxt').textContent='';tone(80,2,'sine',.3);await sleep(2200);
+ scene('s-win');$('#cnt2').textContent=`WINNER ${pad(n)} / 07`;$('#wn').style.cssText='opacity:0;transform:scale(.7)';$('#w2').style.opacity=0;await sleep(1800);
+ $('#wn').textContent=w.name;$('#wn').style.opacity=1;$('#wn').style.transform='scale(1)';
+ const fl=$('#flash');fl.style.transition='none';fl.style.opacity=.9;setTimeout(()=>{fl.style.transition='opacity 1.5s';fl.style.opacity=0},40);
+ boom();celebrate();for(let i=0;i<6;i++)setTimeout(()=>burst(W*Math.random(),H*(.2+Math.random()*.4),60),i*350);
+ await sleep(1500);$('#w2').style.opacity=1;await sleep(6000);busy=false;winners.length>=TOTAL?showFinal():prep()}
+function showFinal(){scene('s-fin');$('#fgrid').innerHTML=winners.map((w,i)=>`<div class="frame" style="animation-delay:${i*.35}s"><i>WINNER ${pad(w.n)}</i><div>${esc(w.name)}</div></div>`).join('');boom();finale()}
+$('#bnext').onclick=nextWinner;
+addEventListener('keydown',e=>{if((e.code==='Space'||e.code==='Enter')&&e.target.tagName!=='BUTTON'&&e.target.tagName!=='INPUT'){e.preventDefault();nextWinner()}});
+</script></body></html>
